@@ -4,7 +4,7 @@ function [outputArg1,outputArg2] = CS170_Search_Project(inputArg1,inputArg2)
 % Datasets are provided by Dr. Eamonn Keogh.
 fprintf("Welcome to Nathaniel Fey's Feature Search!\n")
 userPrompt = 'Press 1 for forward selection, 2 for backwards elimination.\n';
-user_choice = input(userPrompt);
+user_choice = input(userPrompt); % get user input
 
 if user_choice == 1
     dataPrompt = 'Press 1 for small dataset, 2 for large dataset.\n';
@@ -75,14 +75,14 @@ end
 function accuracy = leave_one_out_cross_validation(data,current_set,feature_to_add) %data,current_set,feature_to_add
     number_correctly_classified = 0;
     features_to_ignore = []; % holds what features to ignore
-    current_set(end+1) = feature_to_add; % append feature to add to current set
+    current_set(end+1) = feature_to_add; % append the feature to add, from user 'Image Analyst' on MatLab Answers
     data_size = []; % gives each number of features in the current dataset
     
     % For loop below gets the total number of features in the dataset
     
     for j = 1:size(data,2)-1 % get the number of columns (features)
         data_size = [data_size,j]; % append the numbers into data_size, from user 'Image Analyst' on MatLab Answers
-    end% % end of for loop
+    end% end of for loop
     
     features_to_ignore = setdiff(data_size,current_set); % ignore features not in the current set
     
@@ -154,8 +154,8 @@ for i = 1 :size(data,2)-1 %for loop goes through the data size
         best_accuracy_overall = best_so_far_accuracy;
         best_set_of_features = current_set_of_features;
     end
-       disp(['Best features to use ' num2str(best_set_of_features)])
-       disp(['Best accuracy ', num2str(best_accuracy_overall)])
+       disp(['Best features to use ' num2str(best_set_of_features)]) % print result of best features
+       disp(['Best accuracy ', num2str(best_accuracy_overall)]) % print best accuracy associated with features
 end
 
 
@@ -197,8 +197,8 @@ for i = 1 :size(data,2)-1 %for loop goes through the data size
         best_accuracy_overall = best_so_far_accuracy; % best accuracy is noted
         best_set_of_features = current_set_of_features; % best set of features associated with best accuracy
     end
-       disp(['Best features to use ' num2str(best_set_of_features)]) 
-       disp(['Best accuracy ', num2str(best_accuracy_overall)])
+       disp(['Best features to use ' num2str(best_set_of_features)])  % print best set of features
+       disp(['Best accuracy ', num2str(best_accuracy_overall)]) % print best accuracy
 end
 %accuracy
 end
