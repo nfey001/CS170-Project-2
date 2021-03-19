@@ -1,4 +1,8 @@
 function [outputArg1,outputArg2] = CS170_Search_Project(inputArg1,inputArg2)
+% Feature Search by Nathaniel Fey
+% Guide Code provided by Dr. Eamonn Keogh
+% This program will search for features from a dataset and report the
+% accuracies found via cross validation using nearest neighbor.
 
 % Prompt user for algorithm and dataset selection
 % Datasets are provided by Dr. Eamonn Keogh.
